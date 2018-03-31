@@ -29,7 +29,7 @@
 
 .person{
   display: inline-block;
-  margin: 5px;
+  margin-left: 5px;
   border: 2px solid rgba(30, 124, 201, 0.507);
   background-color: rgba(100, 148, 237, 0.521);
   box-shadow: 0 5px 10px  cornflowerblue;
@@ -37,4 +37,31 @@
   width: 80%;
   padding: 10px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.section{
+  width: 80%;
+  color: #333;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: rgba(25,118,210,.05);
+    border-left: 8px solid #1976d2;
+    padding: 10px;
+    display: inline-block;
+    margin-right: auto;
+    margin-left: auto;
+    clear: both;
+    box-sizing: border-box;
+}
+.mini-section{
+  width: 80%;
+  color: #333;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: left;
+    background-color: rgba(25,118,210,.05);
+    border-left: 100px solid #1976d2; 
+    border-right: 100px solid #1976d2; 
+    padding: 10px;
+    display: inline-block;
+    clear: both;
+    box-sizing: border-box;
 }
