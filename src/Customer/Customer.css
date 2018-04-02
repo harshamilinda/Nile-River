@@ -2,7 +2,7 @@
   
 
   .product-card {
-    width:290px;
+    width:400px;
     display:inline-block;
     background-color:#fff;
     position:relative;
@@ -57,7 +57,7 @@
      
     }
     img {
-        width: 250px !Important;
+        width: 300px !Important;
         display:inline-block;
         
         margin:2px;

@@ -59,14 +59,14 @@ class App extends Component {
   render() {
 
     let nav =
-    (
-      <ul>
+      (
+        <ul>
           <li><a className="active" href="#home">Home</a></li>
           <li><a href="#news">News</a></li>
           <li><a href="#contact">Contact</a></li>
           <li><a href="#about">About</a></li>
-     </ul>
-    );
+        </ul>
+      );
 
     let defaultPerson =
       (
@@ -91,8 +91,9 @@ class App extends Component {
       );
     }
 
-    let cust =
-      (
+    let cust = null;
+    if (this.state.isLoad) {
+      cust = (
         <div>
           {this.state.customers.map(item => {
             return <Customer name={item.name}
@@ -101,7 +102,7 @@ class App extends Component {
           })}
         </div>
       );
-
+    }
 
 
     return (
@@ -125,11 +126,11 @@ class App extends Component {
         <div className="wrapper1">
           <div className="content">
             <div className="list">
-            {cust}
+              {cust}
             </div>
           </div>
         </div>
-        
+
       </div>
     );
   }
