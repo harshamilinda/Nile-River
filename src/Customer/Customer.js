@@ -10,7 +10,7 @@ const customer = (props) => {
             <figure>
                 <img src={props.imageUrl} alt="product" />
             </figure>
-           
+            <button className='mini-button' onClick={props.click} >Delete</button>
         </div>
     )
 }

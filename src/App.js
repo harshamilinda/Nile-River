@@ -12,10 +12,9 @@ class App extends Component {
     ],
     isLoad: false,
     customers: [
-      { name: 'Cristina', summary: 'From England', imageUrl: 'http://aonews.mv/wp-content/uploads/2017/09/5085641-beautiful-girls-images.jpg' },
-      { name: 'Cathey', summary: 'From France', imageUrl: 'http://homemderespeito.com/blog/wp-content/uploads/2016/11/coisas-que-as-mulheres-gostam-nos-homens-768x358.jpg' },
-      { name: 'Emmily', summary: 'From USA', imageUrl: 'https://cdn.pixabay.com/photo/2015/10/16/05/55/girl-990585_960_720.jpg' },
-      { name: 'Riyana', summary: 'From Australia', imageUrl: 'https://hips.hearstapps.com/ellees.h-cdn.co/assets/17/17/2560x1706/gallery-1493195855-gettyimages-606210836.jpg' }
+      { id: 'c1', name: 'Cristina', summary: 'From England', imageUrl: 'http://aonews.mv/wp-content/uploads/2017/09/5085641-beautiful-girls-images.jpg' },
+      { id: 'c2', name: 'Cathey', summary: 'From France', imageUrl: 'http://homemderespeito.com/blog/wp-content/uploads/2016/11/coisas-que-as-mulheres-gostam-nos-homens-768x358.jpg' },
+      { id: 'c3', name: 'Riyana', summary: 'From Australia', imageUrl: 'https://hips.hearstapps.com/ellees.h-cdn.co/assets/17/17/2560x1706/gallery-1493195855-gettyimages-606210836.jpg' }
     ]
 
   }
@@ -37,6 +36,7 @@ class App extends Component {
       ]
     });
   }
+
   nameChangeHandler = (event) => {
     this.setState({
       authors: [
@@ -53,8 +53,11 @@ class App extends Component {
     });
   }
 
-
-
+  deletedHandler = (customerIndex) => {
+    const customers = [...this.state.customers];
+    customers.splice(customerIndex, 1);
+    this.setState({ customers: customers })
+  }
 
   render() {
 
@@ -74,10 +77,9 @@ class App extends Component {
           author={this.state.authors[0].name}
           textChange={this.defaultNameChangeHandler}
           name=" River in Africa">There are two theories about the age of the integrated Nile. One is that the integrated drainage of the Nile is of young age,
-                and that the Nile basin was formerly broken into series of separate basins,
-                only the most northerly of which fed a river following the present course of the Nile in Egypt and Sudan
-      </Person>
+        </Person>
       );
+
     let persons = null;
     if (this.state.isLoad) {
       persons = (
@@ -91,19 +93,19 @@ class App extends Component {
       );
     }
 
-    let cust = null;
+    let customers = null;
     if (this.state.isLoad) {
-      cust = (
+      customers = (
         <div>
-          {this.state.customers.map(item => {
+          {this.state.customers.map((item, index) => {
             return <Customer name={item.name}
               summary={item.summary}
+              click={() => this.deletedHandler(index)}
               imageUrl={item.imageUrl} />
           })}
         </div>
       );
     }
-
 
     return (
       <div className="App">
@@ -113,7 +115,6 @@ class App extends Component {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Hi, Harsha</h1>
-
         </header>
         <div className='Buttton-Container'>
           <button className='mini-button' onClick={this.refreshHandler.bind(this, 'John Hanning Speke')}>Refresh</button>
@@ -126,11 +127,10 @@ class App extends Component {
         <div className="wrapper1">
           <div className="content">
             <div className="list">
-              {cust}
+              {customers}
             </div>
           </div>
         </div>
-
       </div>
     );
   }
