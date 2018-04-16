@@ -121,8 +121,8 @@ class App extends Component {
           <button className='mini-button' onClick={this.toggleLoadHandler} >Toggle</button>
         </div>
         <div>
-          {defaultPerson}
-          {persons}
+          {/* {defaultPerson} */}
+          {/* {persons} */}
         </div>
         <div className="wrapper1">
           <div className="content">
